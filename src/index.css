@@ -1,3 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #1d2634;
+    --color-foreground: #9e9ea4;
+}
+
+body{
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Light theme style*/
+body {
+    --color-background: #dadada;
+    --color-foreground: #1f2023;
+  }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +30,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.t-card-inner {
+  @apply flex items-center justify-between mb-4
+}
+
+.t-card-value {
+  @apply text-2xl font-bold
 }
