@@ -1,55 +1,70 @@
 {
-  "products":[ {
-    "id": 1,
-    "productName": "HP Laptop",
-    "stockNumber": 14,
-    "soldNumber": 20,
-    "review": "2.0"
-  },
-  {
-    "id": 2,
-    "productName": "Oraimo Headset",
-    "stockNumber": 124,
-    "soldNumber": 123,
-    "review": "5.0"
-  },
-  {
-    "id": 3,
-    "productName": "Voltic 500ml",
-    "stockNumber": 54,
-    "soldNumber": 67,
-    "review": "3.1"
-  },
-  {
-    "id": 4,
-    "productName": "Polythene Bag",
-    "stockNumber": 1634,
-    "soldNumber": 2920,
-    "review": "3.2"
-  },
-  {
-    "id": 5,
-    "productName": "Polo Shirt",
-    "stockNumber": 76,
-    "soldNumber": 50,
-    "review": "4.8"
-  }
-],
-"alerts": [
+  "products": [
     {
-        "id": 1,
-        "label": "Text HR",
-        "message": "Text HR concerning an issue"
+      "id": 1,
+      "productName": "HP Laptop",
+      "stockNumber": 14,
+      "soldNumber": 20,
+      "review": "2.0"
     },
     {
-        "id": 2,
-        "label": "Call Marketing",
-        "message": "Call Marketing concerning an issue"
+      "id": 2,
+      "productName": "Oraimo Headset",
+      "stockNumber": 124,
+      "soldNumber": 123,
+      "review": "5.0"
     },
     {
-        "id": 3,
-        "label": "Email Customer 12",
-        "message": "Email Customer 12 concerning an issue"
+      "id": 3,
+      "productName": "Voltic 500ml",
+      "stockNumber": 54,
+      "soldNumber": 67,
+      "review": "3.1"
+    },
+    {
+      "id": 4,
+      "productName": "Polythene Bag",
+      "stockNumber": 1634,
+      "soldNumber": 2920,
+      "review": "3.2"
+    },
+    {
+      "id": 5,
+      "productName": "Polo Shirt",
+      "stockNumber": 76,
+      "soldNumber": 50,
+      "review": "4.8"
+    },
+    {
+      "productName": "",
+      "stockNumber": "",
+      "soldNumber": "",
+      "review": "44",
+      "id": 6
+    },
+    {
+      "productName": "Kofi",
+      "stockNumber": "12",
+      "soldNumber": "34",
+      "review": "1.0",
+      "id": 7
     }
-]
+  ],
+  "alerts": [
+    {
+      "id": 1,
+      "label": "Text HR",
+      "message": "Text HR concerning an issue"
+    },
+    {
+      "id": 2,
+      "label": "Call Marketing",
+      "message": "Call Marketing concerning an issue"
+    },
+    {
+      "id": 3,
+      "label": "Email Customer 12",
+      "message": "Email Customer 12 concerning an issue"
+    }
+  ]
 }

@@ -10,6 +10,12 @@ const url = "http://localhost:3004/products";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [formData, setFormData] = useState({
+    productName: "",
+    stockNumber: "",
+    soldNumber: "",
+    review: "",
+  });
   // fetching the data
   useEffect(() => {
     async function getProducts() {
@@ -21,6 +27,18 @@ const Products = () => {
 
     getProducts();
   }, []);
+
+  const handlePostData = () => {
+
+    //posting data to the JSON server
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then((response) => response.json());
+  };
 
   //Changing the first card to take inputs
 
@@ -47,27 +65,68 @@ const Products = () => {
         <div class="">
           {changeCard ? (
             <div class="z-40 h-screen w-screen bg-hovery flex justify-center items-center flex-col  abosult top-5 left-10">
-                <div class="absolute">
-                <div>Name of Product:</div>
-                <div>
-                  <input placeholder="Enter product name"></input>
-                </div>
-                <div>Stock number:</div>
-                <div>
-                  <input placeholder="Enter items' stock number"></input>
-                </div>
-                <div>Sales number:</div>
-                <div>
-                  <input placeholder="Enter number of sales"></input>
-                </div>
-                <div>Ratings</div>
-                <div>
-                  <input placeholder="Enter rating in decimal"></input>
-                </div>
-                <div>
-                  <button>Add Product</button>
-                </div>
-                </div>
+              <div class="absolute text-bluey">
+                <form class="color-bluey" onSubmit={handlePostData}>
+                  <div>Name of Product:</div>
+                  <div>
+                    <input
+                      id="nameInput"
+                      value={formData.productName}
+                      onChange={(e) =>
+                        setFormData({
+                          productName: e.target.value,
+                        })
+                      }
+                      placeholder="Enter product name"
+                    ></input>
+                  </div>
+                  <div>Stock number:</div>
+                  <div>
+                    <input
+                      id="stockNumInput"
+                      value={formData.stockNumber}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          stockNumber: e.target.value,
+                        })
+                      }
+                      placeholder="Enter items' stock number"
+                    ></input>
+                  </div>
+                  <div>Sales number:</div>
+                  <div>
+                    <input
+                      id="soldNumInput"
+                      value={formData.soldNumber}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          soldNumber: e.target.value,
+                        })
+                      }
+                      placeholder="Enter number of sales"
+                    ></input>
+                  </div>
+                  <div>Ratings</div>
+                  <div>
+                    <input
+                      id="reviewInput"
+                      value={formData.review}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          review: e.target.value,
+                        })
+                      }
+                      placeholder="Enter rating in decimal"
+                    />
+                  </div>
+                  <div>
+                    <button type="submit">Add Product</button>
+                  </div>
+                </form>
+              </div>
             </div>
           ) : (
             <div
