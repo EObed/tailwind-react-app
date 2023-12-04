@@ -54,17 +54,17 @@ const Products = () => {
 
   return (
     <div className="main-container text-center w-full padding p-2">
-      <div class="products-header w-full text-center flex justify-between sticky top-0 rounded-lg bg-bluey">
+      <div class="products-header w-full text-center flex justify-between  top-0 rounded-lg ">
         <div class="header-name text-3xl pl-10">Products</div>
-        <div class="products-drop items-center flex">{elem}</div>
+        {/* <div class="products-drop items-center flex">{elem}</div> */}
       </div>
 
       {/* Grid for cards */}
-      <div class="products-content w-full pt-4 grid grid-cols-4 gap-5 overflow-y-hidden">
+      <div  class="products-content w-full pt-4 grid grid-cols-4 gap-5 overflow-y-hidden duration-300 ease-in-out opacity-100 group-hover:opacity-50 tiny:grid-cols-1 extra-small:grid-cols-2 small:grid-cols-3 medium:grid-cols-4">
         {/* Add Product card */}
         <div class="">
           {changeCard ? (
-            <div class="z-40 h-screen w-screen bg-hovery flex justify-center items-center flex-col  abosult top-5 left-10">
+            <div class="z-[400] h-screen w-screen bg-hovery flex justify-center items-center flex-col   top-5 left-10">
               <div class="absolute text-bluey">
                 <form class="color-bluey" onSubmit={handlePostData}>
                   <div>Name of Product:</div>
@@ -130,7 +130,7 @@ const Products = () => {
             </div>
           ) : (
             <div
-              class="product-card bg-bluey h-72 flex flex-col items-center justify-center  hover:bg-hovery cursor-pointer"
+              class="product-card bg-bluey h-36 flex flex-col items-center justify-center  hover:bg-hovery cursor-pointer"
               onClick={toggleChangeCard}
             >
               <div class="text-2xl">Add New Product</div>
@@ -140,7 +140,7 @@ const Products = () => {
         </div>
         {/* Cards from json file */}
         {products.map((product) => (
-          <div class="product-card bg-bluey h-72 z-0">
+          <div  class="product-card bg-bluey h-36 z-0 flex flex-col items-center justify-center">
             <div>{product.productName}</div>
             <div>Number in Stock: {product.stockNumber}</div>
             <div>Number Sold: {product.soldNumber}</div>

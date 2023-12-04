@@ -26,13 +26,16 @@ const Header = ({OpenSideBar}) => {
             <BsFillBellFill className='icon' id='header-icon' onClick={toggleDropDown}/>
             {/*Drop down functionality */
             isDropDownOpen && (
-              <div class="absolute bg-hovery shadow-sm w-auto h-auto mt-7">Abcde</div>
+              <div class="absolute bg-hovery shadow-sm w-auto h-auto right-9 mt-7">
+                <div>View Alerts</div>
+                <div>Create Alert</div>
+              </div>
             )
             
             
             }
-            <BsFillEnvelopeFill className='icon'/>
-            <BsPersonCircle className='icon' />
+            {/* <BsFillEnvelopeFill className='icon'/>
+            <BsPersonCircle className='icon' /> */}
         </div>
     </header>
   )

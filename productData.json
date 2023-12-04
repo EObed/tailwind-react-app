@@ -36,17 +36,17 @@
       "review": "4.8"
     },
     {
-      "productName": "",
-      "stockNumber": "",
-      "soldNumber": "",
-      "review": "44",
-      "id": 6
-    },
-    {
       "productName": "Kofi",
       "stockNumber": "12",
       "soldNumber": "34",
       "review": "1.0",
+      "id": 6
+    },
+    {
+      "productName": "Stan",
+      "stockNumber": "55",
+      "soldNumber": "234",
+      "review": "4.0",
       "id": 7
     }
   ],
