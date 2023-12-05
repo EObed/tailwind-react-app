@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
+import Alerts from "./components/Alerts";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
-              {/* <Route path="/" /> */}
+            <Route path="/alerts"  element={<Alerts />}/>
             
           </Routes>
           </Layout>

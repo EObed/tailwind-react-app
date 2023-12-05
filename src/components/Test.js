@@ -26,3 +26,25 @@
       <div>{elem1}</div>
     </>
   )}
+
+  <div className='header-right'>
+            <BsFillBellFill className='icon' id='header-icon' onClick={toggleDropDown1}/>
+            {/*Drop down functionality */
+            isDropDown1Open && (
+              <div class="absolute bg-hovery shadow-sm w-auto h-auto right-9 mt-7">
+                <div><button>View Alerts</button></div>
+                <div><button onClick={toggleDropDown2}>Create Alert
+                {isDropDown2Open && (
+                  <div></div>
+                )}
+                 </button>
+                 
+                </div>
+              </div>
+            )
+            
+            
+            }
+            {/* <BsFillEnvelopeFill className='icon'/>
+            <BsPersonCircle className='icon' /> */}
+        </div>
