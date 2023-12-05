@@ -9,6 +9,10 @@ const elem1 = <IoAddCircleOutline />;
 const url = "http://localhost:3004/products";
 
 const Products = () => {
+
+  
+  
+
   const [products, setProducts] = useState([]);
   const [formData, setFormData] = useState({
     productName: "",
@@ -40,17 +44,38 @@ const Products = () => {
     }).then((response) => response.json());
   };
 
+
+  //Changing the cards to update mode
+  const [updateModes, setUpdateModes] = useState((Array(products.length).fill(false)))
+  const toggleUpdateMode = (index) => {
+    const newUpdateModes = [...updateModes];
+    newUpdateModes[index] = !newUpdateModes[index];
+    setUpdateModes(newUpdateModes);
+  };
+
+const butClick1 = () =>{
+  toggleChangeCard();
+  setShowForm(!showForm)
+  };
+
+
+//Showing only the form when the add new product button is clicked
+  const [showForm, setShowForm] = useState(false);
+
   //Changing the first card to take inputs
 
   const [changeCard, setChangeCard] = useState(false);
 
   const toggleChangeCard = () => {
     setChangeCard(!changeCard);
-    setisDisabled(isDisabled);
-  };
+    
+ 
 
-  //Disabling the first card after click
-  const [isDisabled, setisDisabled] = useState(false);
+  
+
+  
+}
+
 
   return (
     <div className="main-container text-center w-full padding p-2">
@@ -59,14 +84,11 @@ const Products = () => {
         {/* <div class="products-drop items-center flex">{elem}</div> */}
       </div>
 
+
+      {/*COnditional rendering of grid */}
+      
       {/* Grid for cards */}
-      <div  class="products-content w-full pt-4 grid grid-cols-4 gap-5 overflow-y-hidden duration-300 ease-in-out opacity-100 group-hover:opacity-50 tiny:grid-cols-1 extra-small:grid-cols-2 small:grid-cols-3 medium:grid-cols-4">
-        {/* Add Product card */}
-        <div class="">
-          {changeCard ? (
-            <div class="z-[400] h-screen w-screen bg-hovery flex justify-center items-center flex-col   top-5 left-10">
-              <div class="absolute text-bluey">
-                <form class="color-bluey" onSubmit={handlePostData}>
+      { showForm  ? ( <form class="color-bluey text-black" onSubmit={handlePostData}>
                   <div>Name of Product:</div>
                   <div>
                     <input
@@ -125,29 +147,57 @@ const Products = () => {
                   <div>
                     <button type="submit">Add Product</button>
                   </div>
-                </form>
-              </div>
-            </div>
-          ) : (
-            <div
-              class="product-card bg-bluey h-36 flex flex-col items-center justify-center  hover:bg-hovery cursor-pointer"
-              onClick={toggleChangeCard}
-            >
-              <div class="text-2xl">Add New Product</div>
-              <div>{elem1}</div>
-            </div>
-          )}
-        </div>
-        {/* Cards from json file */}
-        {products.map((product) => (
-          <div  class="product-card bg-bluey h-36 z-0 flex flex-col items-center justify-center">
-            <div>{product.productName}</div>
-            <div>Number in Stock: {product.stockNumber}</div>
-            <div>Number Sold: {product.soldNumber}</div>
-            <div>Rating: {product.review}</div>
-          </div>
-        ))}
-      </div>
+                </form>) :
+                (      <div  class="products-content w-full pt-4 grid grid-cols-4 gap-5 overflow-y-hidden duration-300 ease-in-out opacity-100 group-hover:opacity-50 tiny:grid-cols-1 extra-small:grid-cols-2 small:grid-cols-3 medium:grid-cols-4">
+                {/* Add Product card */}
+                <div class="">
+                  {changeCard ? (
+                    <div class="z-[400] h-screen w-screen bg-hovery flex justify-center items-center flex-col   top-5 left-10">
+                      <div class="absolute text-bluey">
+                       
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      className="product-card bg-[#263043] h-36 flex flex-col items-center justify-center  hover:bg-hovery cursor-pointer"
+                      onClick={butClick1 }
+                    >
+                      <div className="text-2xl">Add New Product</div>
+                      <div>{elem1}</div>
+                    </div>
+                
+                  )}
+                </div>
+                {/* Cards from json file */}
+                {products.map((product, index) => (
+                  <div key={product.id}  class="product-card bg-[#263043]  z-0 flex flex-col items-center justify-center">
+                    {updateModes[index] ? ( <>
+                      <div class="product-card bg-[#263043] h-72 flex  flex-col items-center justify-center text-black">
+                        <form class="space-y-3">
+                          <div><input value={product.productName}></input></div>
+                          
+                          <div><input value={product.stockNumber}></input></div>
+                         
+                          <div><input value={product.soldNumber}></input></div>
+                          
+                          <div><input value={product.review}></input></div>
+                          <div class= "flex space-x-2 text-white"> <button>Update</button> <button onClick={()=>toggleUpdateMode(index)}>Cancel</button></div>
+                        </form>
+                      </div>
+                    
+                    </>)
+                    : (
+                      <div class="h-36"><div>{product.productName}</div>
+                      <div>Number in Stock: {product.stockNumber}</div>
+                      <div>Number Sold: {product.soldNumber}</div>
+                      <div>Rating: {product.review}</div>
+                      <div class=""><button onClick={()=>toggleUpdateMode(index)}>Update</button></div></div>
+                    )}
+                  </div>
+                ))}
+              </div>)
+                }
+
     </div>
   );
 };

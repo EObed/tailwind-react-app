@@ -35,16 +35,16 @@ const Sidebar = ({openSideBarToggle, OpenSideBar, }) => {
                 </a>
                 </Link>
             </li>
-            <li className='sidebar-list-item'>
+            {/* <li className='sidebar-list-item'>
                 <a href=''>
                     <BsFillGrid3X3GapFill className='icon'/> Categories
                 </a>
-            </li>
-            <li className='sidebar-list-item'>
+            </li> */}
+            {/* <li className='sidebar-list-item'>
                 <a href=''>
                     <BsPeopleFill className='icon'/> Customers
                 </a>
-            </li>
+            </li> */}
             <li className='sidebar-list-item'>
                 <Link to= '/alerts'>
                 <a href=''>
@@ -53,12 +53,12 @@ const Sidebar = ({openSideBarToggle, OpenSideBar, }) => {
                 </Link>
             </li>
            
-            <li className='sidebar-list-item'>
+            {/* <li className='sidebar-list-item'>
                 <a href=''>
                 
                     <BsFillGearFill className='icon' id='darkModeToggle' /> Settings 
                 </a>
-            </li>    
+            </li>     */}
         </ul>
     </aside>
   )
