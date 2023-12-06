@@ -1,11 +1,11 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useContext } from "react";
 import {
   BsFillArchiveFill,
   BsFillGrid3X3GapFill,
   BsPeopleFill,
   BsFillBellFill,
 } from "react-icons/bs";
-
+import { ProductContext } from "../store/MyProductContext";
 import {
   LineChart,
   Line,
@@ -34,36 +34,84 @@ const Home = () => {
       amt: 2210,
     },
     {
-      name: "Clothes",
+      name: "Item 0",
       
       pv: 9800,
       amt: 2290,
     },
     {
-      name: "Page D",
+      name: "Item 1",
      
       pv: 3908,
       amt: 2000,
     },
     {
-      name: "Page E",
+      name: "Item 2",
      
       pv: 4800,
       amt: 2181,
     },
     {
-      name: "Page F",
+      name: "Item 3",
       
       pv: 3800,
       amt: 2500,
     },
     {
-      name: "Page G",
+      name: "Item 4",
      
       pv: 4300,
       amt: 2100,
     },
   ];
+
+  const data1 = [
+    {
+      name: "8am",
+      
+      pv: 2100,
+      amt: 2400,
+    },
+    {
+      name: "9am",
+      
+      pv: 1698,
+      amt: 2210,
+    },
+    {
+      name: "10am",
+      
+      pv: 9000,
+      amt: 2290,
+    },
+    {
+      name: "11am",
+     
+      pv: 3508,
+      amt: 2000,
+    },
+    {
+      name: "12pm",
+     
+      pv: 4800,
+      amt: 2181,
+    },
+    {
+      name: "1pm",
+      
+      pv: 3800,
+      amt: 2500,
+    },
+    {
+      name: "2pm",
+     
+      pv: 4300,
+      amt: 2100,
+    },
+  ];
+
+  const {totalProductNumber} = useContext(ProductContext)
+   
 
 //   const alerts= data.alerts
 //   var alertValue = data.length
@@ -80,7 +128,7 @@ const Home = () => {
             <h3>Products</h3>
             <BsFillArchiveFill className="card_icon" />
           </div>
-          <h1 className="t-card-value">300</h1>
+          <h1 className="t-card-value">{totalProductNumber}</h1>
         </div>
         <div className="card">
           <div className="t-card-inner">
@@ -112,26 +160,26 @@ const Home = () => {
        
         {/* <div className="top-products-chart"> */}
         <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-            }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="pv" fill="#8884d8" />
-                
-                </BarChart>
-            </ResponsiveContainer>
+        <BarChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+          
+        </BarChart>
+      </ResponsiveContainer>
         {/* </div> */}
         </div> 
 
@@ -145,7 +193,7 @@ const Home = () => {
                 <LineChart
                 width={500}
                 height={300}
-                data={data}
+                data={data1}
                 margin={{
                     top: 5,
                     right: 30,

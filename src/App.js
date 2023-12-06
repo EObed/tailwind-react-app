@@ -8,17 +8,17 @@ import Layout from "./components/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import Alerts from "./components/Alerts";
-
+import { MyProductContextProvider } from "./store/MyProductContext";
 
 function App() {
 
-
+ 
 
   
   return (
     
     <div className="grid-container">
-      
+        <MyProductContextProvider >
         <BrowserRouter>
           <Layout>
           <Routes>
@@ -29,8 +29,7 @@ function App() {
           </Routes>
           </Layout>
         </BrowserRouter>
-      
-      
+        </MyProductContextProvider>
     </div>
     
   );

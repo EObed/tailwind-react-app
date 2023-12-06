@@ -79,6 +79,11 @@
       "id": 3,
       "label": "Email Customer 12",
       "message": "Email Customer 12 concerning an issue"
+    },
+    {
+      "label": "Do something",
+      "message": "Do something something ",
+      "id": 4
     }
   ]
 }

@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../App.css";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { ProductContext } from "../store/MyProductContext";
+
+
+
+
+
 
 const elem = <IoIosArrowDropdownCircle />;
 const elem1 = <IoAddCircleOutline />;
@@ -11,8 +17,8 @@ const url = "http://localhost:3004/products";
 const Products = () => {
 
   
+  let {setTotalProductNumber} = useContext(ProductContext) 
   
-
   const [products, setProducts] = useState([]);
   const [formData, setFormData] = useState({
     productName: "",
@@ -27,11 +33,15 @@ const Products = () => {
       const data = await response.json();
       console.log(data);
       setProducts(data);
+  
     }
 
     getProducts();
   }, []);
 
+ 
+  setTotalProductNumber(products.length.toString());
+  // products.length===0 ?(console.error('error')):(console.log(products.length))
   const handlePostData = () => {
 
     //posting data to the JSON server
@@ -68,12 +78,6 @@ const butClick1 = () =>{
 
   const toggleChangeCard = () => {
     setChangeCard(!changeCard);
-    
- 
-
-  
-
-  
 }
 
 

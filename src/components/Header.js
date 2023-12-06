@@ -10,10 +10,10 @@ const Header = ({OpenSideBar}) => {
         <div className='menu-icon'>
              <BsJustify className='icon' onClick={OpenSideBar}/>
         </div>
-        <div className='header-left'>
+        {/* <div className='header-left'>
             <BsSearch className='icon' />
         </div>
-        
+         */}
     </header>
   )
 }
