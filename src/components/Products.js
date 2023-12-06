@@ -191,7 +191,7 @@ const butClick1 = () =>{
                     
                     </>)
                     : (
-                      <div class="h-36"><div>{product.productName}</div>
+                      <div class="h-36"><div class="font-bold">{product.productName}</div>
                       <div>Number in Stock: {product.stockNumber}</div>
                       <div>Number Sold: {product.soldNumber}</div>
                       <div>Rating: {product.review}</div>

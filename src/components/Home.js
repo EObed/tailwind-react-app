@@ -111,6 +111,7 @@ const Home = () => {
   ];
 
   const {totalProductNumber} = useContext(ProductContext)
+  const {totalAlertNumber} = useContext(ProductContext)
    
 
 //   const alerts= data.alerts
@@ -149,7 +150,7 @@ const Home = () => {
             <h3>Alerts</h3>
             <BsFillBellFill className="card_icon" />
           </div>
-          <h1 className="t-card-value">7</h1>
+          <h1 className="t-card-value">{totalAlertNumber}</h1>
         </div>
       </div>
 

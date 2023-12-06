@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import "../App.css";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { ProductContext } from '../store/MyProductContext';
 
 const elem2 = <IoAddCircleOutline />;
 const alertUrl = "http://localhost:3004/alerts";
 
 const Alerts = () => {
+
+    let {setTotalAlertNumber} = useContext(ProductContext) 
 
     const [alerts, setAlerts] = useState([])
     const [alertFormData, setAlertFormData] = useState({
@@ -23,7 +26,7 @@ const Alerts = () => {
     
         getAlerts();
       }, []);
-
+      setTotalAlertNumber(alerts.length.toString())
 
       const handlePostAlertData = () => {
 
