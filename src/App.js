@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import Alerts from "./components/Alerts";
 import { MyProductContextProvider } from "./store/MyProductContext";
+require('dotenv').config();
 
 function App() {
 
