@@ -4,7 +4,7 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { ProductContext } from "../store/MyProductContext";
 import { dataBase1 } from "../firebase-config";
-import { collection, getDocs, addDoc, updateDoc, doc } from "firebase/firestore";
+import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from "firebase/firestore";
 
 const elem = <IoIosArrowDropdownCircle />;
 const elem1 = <IoAddCircleOutline />;
@@ -183,6 +183,24 @@ const Products = () => {
     }));
   };
 
+
+  const handleDeleteData = async (index) => {
+    try {
+      // Get the ID of the selected product
+      const productId = products[index].id;
+  
+      // Perform the delete operation in Firestore
+      await deleteDoc(doc(dataBase1, "products", productId));
+  
+      // Refetch the updated data from Firestore
+      const updatedResponse = await getDocs(productsCollectionref);
+      setProducts(updatedResponse.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    } catch (error) {
+      console.error("Error deleting data:", error);
+    }
+  };
+
+
   return (
     <div className="main-container text-center w-full padding p-2">
       <div className="products-header w-full text-center flex justify-between  top-0 rounded-lg ">
@@ -338,7 +356,7 @@ const Products = () => {
                     <button  onClick={() => toggleUpdateMode(index)}>
                       Update
                     </button>
-                    <button >
+                    <button  onClick={()=> handleDeleteData(index)}>
                       Delete
                     </button>
                   </div>
